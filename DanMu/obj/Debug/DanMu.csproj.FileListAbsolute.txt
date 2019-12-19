@@ -8,3 +8,12 @@ C:\Users\Ping\Desktop\WordBarrage-master\WordBarrage-master\DanMu\obj\Debug\DanM
 C:\Users\Ping\Desktop\WordBarrage-master\WordBarrage-master\DanMu\obj\Debug\DanMu.csproj.CoreCompileInputs.cache
 C:\Users\Ping\Desktop\WordBarrage-master\WordBarrage-master\DanMu\obj\Debug\DanMu.exe
 C:\Users\Ping\Desktop\WordBarrage-master\WordBarrage-master\DanMu\obj\Debug\DanMu.pdb
+C:\Users\Ping\Desktop\danmu\-desktop-barrage-\DanMu\bin\Debug\DanMu.exe.config
+C:\Users\Ping\Desktop\danmu\-desktop-barrage-\DanMu\bin\Debug\DanMu.exe
+C:\Users\Ping\Desktop\danmu\-desktop-barrage-\DanMu\bin\Debug\DanMu.pdb
+C:\Users\Ping\Desktop\danmu\-desktop-barrage-\DanMu\obj\Debug\DanMu.csprojAssemblyReference.cache
+C:\Users\Ping\Desktop\danmu\-desktop-barrage-\DanMu\obj\Debug\DanMu.Form1.resources
+C:\Users\Ping\Desktop\danmu\-desktop-barrage-\DanMu\obj\Debug\DanMu.Properties.Resources.resources
+C:\Users\Ping\Desktop\danmu\-desktop-barrage-\DanMu\obj\Debug\DanMu.csproj.GenerateResource.cache
+C:\Users\Ping\Desktop\danmu\-desktop-barrage-\DanMu\obj\Debug\DanMu.exe
+C:\Users\Ping\Desktop\danmu\-desktop-barrage-\DanMu\obj\Debug\DanMu.pdb

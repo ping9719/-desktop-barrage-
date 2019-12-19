@@ -47,7 +47,7 @@ namespace DanMu
             }
         }
 
-        private void AddTanMu(String word)
+        public void AddTanMu(String word)
         {
             Label label = new Label();
             label.Text = word;
@@ -57,11 +57,10 @@ namespace DanMu
             label.Font = new Font("宋体", 20);
             label.Location = new Point(this.Width, new Random().Next(this.Height - label.Height));
 
-            TanMuList.Add(label);
-
             this.Invoke(new Action(() =>
             {
                 this.Controls.Add(label);
+                TanMuList.Add(label);
             }));
         }
 
@@ -72,17 +71,17 @@ namespace DanMu
             {
                 Label label = TanMuList[i];
 
-                Point point = label.Location;
-
-                //步数、速度
-                for (int v = 0; v < 7; v++)
+                label.Invoke(new Action(() =>
                 {
-                    point.X = point.X - 1;
-                    label.Location = point;
-                }
+                    //步数、速度
+                    for (int v = 0; v < 7; v++)
+                    {
+                        label.Left -= 1;
+                    }
+                }));
 
                 //超出移除
-                if (point.X + label.Width < 0)
+                if (label.Left + label.Width < 0)
                 {
                     label.Visible = false;
                     TanMuList.Remove(label);
