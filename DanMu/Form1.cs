@@ -14,8 +14,6 @@ namespace DanMu
 {
     public partial class Form1 : Form
     {
-        List<Label> TanMuList = new List<Label>();
-
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +21,7 @@ namespace DanMu
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            System.Drawing.Rectangle rec = Screen.GetWorkingArea(this);
+            Rectangle rec = Screen.GetWorkingArea(this);
             this.Height = rec.Height / 3 * 2; // 3分之2
             this.Width = rec.Width;
             this.Location = new Point(0, 0);
@@ -31,19 +29,19 @@ namespace DanMu
             this.TransparencyKey = Color.White;
             this.Opacity = 1;
 
-            Thread th1 = new Thread(new ThreadStart(aaaa));
-            th1.Start();
-
             AddTanMu("你开启了弹幕");
+
+            //测试运行
+            Thread th1 = new Thread(new ThreadStart(test));
+            th1.Start();
         }
 
-        //测试
-        private void aaaa()
+        private void test()
         {
             while (true)
             {
                 AddTanMu(Guid.NewGuid().ToString());
-                Thread.Sleep(new Random().Next(1000, 3000));
+                Thread.Sleep(new Random().Next(2000, 3500));
             }
         }
 
@@ -60,23 +58,48 @@ namespace DanMu
             this.Invoke(new Action(() =>
             {
                 this.Controls.Add(label);
-                TanMuList.Add(label);
             }));
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            //只能使用for循环
-            for (int i = 0; i < TanMuList.Count; i++)
-            {
-                Label label = TanMuList[i];
+            //方法1：
+            //foreach (Label label in this.Controls)
+            //{
+            //    Task.Run(() =>
+            //    {
+            //        //单独执行的委托，防止卡顿
+            //        label.Invoke(new Action(() =>
+            //        {
+            //            //步数、速度
+            //            for (int v = 0; v < 3; v++)
+            //            {
+            //                label.Left -= 2;
+            //            }
+            //        }));
 
+            //        //超出移除
+            //        if (label.Left + label.Width < 0)
+            //        {
+            //            this.Invoke(new Action(() =>
+            //            {
+            //                this.Controls.Remove(label);
+            //                label.Dispose();
+
+            //            }));
+            //        }
+            //    });
+            //}
+
+            //方法2：
+            foreach (Label label in this.Controls)
+            {
                 label.Invoke(new Action(() =>
                 {
                     //步数、速度
-                    for (int v = 0; v < 7; v++)
+                    for (int v = 0; v < 3; v++)
                     {
-                        label.Left -= 1;
+                        label.Left -= 2;
                     }
                 }));
 
@@ -84,7 +107,6 @@ namespace DanMu
                 if (label.Left + label.Width < 0)
                 {
                     label.Visible = false;
-                    TanMuList.Remove(label);
                     this.Controls.Remove(label);
                 }
             }
