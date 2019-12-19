@@ -97,6 +97,7 @@ namespace DanMu
                 label.Invoke(new Action(() =>
                 {
                     //步数、速度
+                    //【3（次数）*2（步数）=6（速度）】
                     for (int v = 0; v < 3; v++)
                     {
                         label.Left -= 2;
